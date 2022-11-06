@@ -12,7 +12,7 @@ def parseLine(line):
     return (stationId, entryType, temperature)
 
 
-lines = sc.textFile("data/1800.csv")
+lines = sc.textFile("../data/1800.csv")
 parsedLines = lines.map(parseLine)
 minTemps = parsedLines.filter(lambda x: "TMIN" in x[1])
 stationTemps = minTemps.map(lambda x: (x[0], x[2]))
